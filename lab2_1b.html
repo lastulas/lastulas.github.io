@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="datE"></div>
+    <script language "JavaScript">  
+    theTime = new Date();  
+    theHour = theTime.getHours();
+    theMinute=theTime.getMinutes();
+    theSecond=theTime.getSeconds();
+    datE.innerHTML='Current time:' + theHour+':'+theMinute+':'+theSecond;
+    if ((11  >   theHour || 30 > theMinute) && 30 < theSecond)   document.writeln("<body bgcolor='red' text='Black'>"); 
+    else   document.writeln("<body bgcolor='green' text='White'>"); 
+    </script>  
+</body> 
+</html>

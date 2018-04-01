@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part_6</title>
+    <link rel="stylesheet" href="pt6style.css">
+</head>
+<body id="bd_06">
+<p id="titpt6">Lab 2 pt.6</p>
+<form action="" align=center>
+    <textarea id="txt" rows="10" cols="40" placeholder="Enter your
+mathematical expression"></textarea>
+    <br>
+    <button id="submt" type="button" onclick="Clear(); part6_19();">Submit</button>
+    <div id="res">
+    </div>
+</form>
+<script>
+    function part6_19() {
+        var str = document.getElementById('txt').value;
+        var addition = 0, subtraction = 0, multiplication = 0,
+            division = 0, equals=0, consts=0, digits=0;
+        for (var i = 0; i < str.length; i++)
+        {
+            switch (str[i])
+            {
+                case "+":
+                    addition++;
+                    break;
+                case "*":
+                    multiplication++;
+                    break;
+                case "/":
+                    division++;
+                    break;
+                case "-":
+                    subtraction++;
+                    break;
+                case "=":
+                    equals++;
+                    break;
+               /* case (str[i]>="a" && str[i]<="z"):
+                    consts++;
+                    break;
+                case (str[i]>="0" && str[i]<="9"):
+                    digits++;
+                    break;*/
+            }
+            if(str[i-1]==")" && str[i]=="(")
+                multiplication++;
+
+        }
+
+        var result = "";
+        result += '<table border=1px align=center bgcolor=ivory>';
+        
+        //result+='<tr><td colspan=2>'str'</td></tr>';
+        
+        result+='<tr><td align=center>Operator</td>';
+        result+='<td>Quantity</td></tr>';
+        
+        /*result += '<tr><td>Digits';
+        result += '</td>';
+        result += '<td>'+digits+'</td></tr>';*/
+        
+        result += '<tr><td align=center>&plus;';
+        result += '</td>';
+        result += '<td align=center>'+addition+'</td> </tr>';
+
+        result += '<tr><td align=center>&times;';
+        result += '</td>';
+        result += '<td align=center>'+multiplication+'</td> </tr>';
+
+        result += '<tr><td align=center>&minus;';
+        result += '</td>';
+        result += '<td align=center>'+subtraction+'</td> </tr>';
+
+        result += '<tr><td align=center>&divide;';
+        result += '</td>';
+        result += '<td align=center>'+division+'</td> </tr>';
+        
+        result += '<tr><td align=center>&equals;';
+        result += '</td>';
+        result += '<td align=center>'+equals+'</td> </tr>';
+        
+        /*result += '<tr><td>Const';
+        result += '</td>';
+        result += '<td>'+consts+'</td> </tr>';*/
+        
+        result += "</table>";
+        if(!(str=="")){
+        document.getElementById("res").innerHTML += result;
+        document.getElementById("res").innerHTML+="Expression: "+ str;
+        }
+    }
+    function Clear()
+    {
+        document.getElementById("res").innerHTML="";
+    }
+</script>
+
+</body>
+</html>

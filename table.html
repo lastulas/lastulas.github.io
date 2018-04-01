@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+<style>
+table, th, td{
+		border: 1px solid black;
+		border-collapse: collapse;
+		}
+th, td{
+		padding:5px;
+		text-align:center;
+	}
+
+    body{
+        background-color:#ffcc00;
+    }
+    input{
+        font-family: "Roboto", sans-serif;
+	outline:1;
+	background: #f2f2f2;
+	width: 500px;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+    }
+    p{
+        text-align: center;
+    }
+    #tblt:hover{
+    background-color: lightgoldenrodyellow;
+}
+</style>
+    
+</head>
+
+<body>
+    <p>Lab 2 pt.5(2):</p>
+
+<form name="f1">
+    <div>
+    <input id="t0" type="text" placeholder="Початок проміжку t0"/>
+    <input id="T" type="text" placeholder="Кінець проміжку T"/>
+    <input id="N" type="text" placeholder="Кількість розбиттів N"/>
+    <input id="tblt" type="button" value="Протабулювати" onclick="myfunc();"/>
+    </div>
+    <div id="res"></div>
+</form>
+</body>
+
+    
+<script>
+function get(id){return document.getElementById(id)}
+function getVal(id){return parseFloat(get(id).value)}
+
+function y(x){return Math.cos(((Math.PI)*x)/3)+ Math.exp(1-Math.sin(x)) }
+
+function myfunc(){
+var result = "";
+result+='<table border=3 align=center bgcolor=ivory>';
+result+='<tr align=center><td><b>X';
+result+='<td><b>Функція y';
+result+='</tr><tr align=center><td colspan=2><b>Цикл For</tr>';
+
+var a =[getVal('t0'),getVal('T'),getVal('N')];
+var min = null;
+var max = null;
+
+var kmin = null;
+var kmax = null;
+
+for (var x=a[0]; x<=a[1]; x+=(a[1]-a[0])/a[2]) {
+var z=y(x);
+
+if (min === null || min > z) {min = z; kmin=x;}
+if (max === null || max < z) {max = z; kmax=x;}
+
+result+='<tr align=center><td width=50%>'+(x).toFixed(1);
+result+='<td>'+z.toFixed(4)+'</tr>';
+}
+result+="</table>";
+result+="<br>min:"+min ;
+result+="<br>kmin:"+kmin ;
+result+="<br>max:"+max ;
+result+="<br>kmax:"+kmax ;
+
+if(!(min==null || max==null)){
+    get('res').innerHTML = result;
+    alert( "min = " + min + ", max = " + max );
+}
+}
+
+</script>
+    
+</html>

@@ -1,0 +1,58 @@
+body{
+        background-color:#ffcc00;
+    }
+
+p{
+    text-align: center;
+}
+
+a{
+        font-family:"Roboto", sans-serif;
+        font-size: 25px;
+    }
+#opCount {
+    float: right;
+    padding-right: 200px;
+    height: 700px;
+    width: 350px;
+    border:0px;
+}
+
+#tabu{
+    float: left;
+    height: 700px;
+    border: 0px;
+    width: 550px;
+}
+
+#hrefs{
+    padding-top: 50px;
+    align-content: center;
+    display: block;
+    float: left;
+    padding-left: 300px;
+    border-color: black;
+    border: 1px;
+}
+
+.button{
+	font-family: "Roboto", sans-serif;
+	text-transform: uppecase;
+	outline: 0;
+	background: #ffffff;
+	width: 100%;
+    border: 0px;
+	padding: 15px;
+	color: black;
+	font-size: 14px;
+	cursor: pointer;
+}
+.button:hover{
+    background-color: lightgoldenrodyellow;
+}
+#reglog{
+    background: lightgoldenrodyellow;
+}
+#reglog:hover{
+    background-color: #ffffff;
+}
